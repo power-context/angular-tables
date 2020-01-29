@@ -1,1 +1,11 @@
 /* You can add global styles to this file, and also import other style files */
+@import '@angular/material/prebuilt-themes/indigo-pink.css';
+
+form.form-group {
+    width: 100%;
+    padding: 10%;
+}
+
+form.form-group > *{
+    width: 100%;
+}
