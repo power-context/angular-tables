@@ -1,35 +1,72 @@
 <form [formGroup]="service.form" (ngSubmit)="submit()">
-    <mat-grid-list cols="2" rowHeight="300px">
-        <mat-grid-tile>
-            <div class="form-group">
-                <input type="hidden" formControlName="$key">
+  <mat-grid-list cols="2" rowHeight="300px">
+    <mat-grid-tile>
+      <div class="form-group">
+        <input type="hidden" formControlName="$key" />
 
-                <mat-form-field>
-                    <input matInput placeholder="Full name" formControlName="fullName">
-                </mat-form-field>
-                <mat-form-field>
-                    <input matInput placeholder="Email" formControlName="email">
-                </mat-form-field>
-                <mat-form-field>
-                    <input matInput placeholder="Mobile" formControlName="mobile">
-                </mat-form-field>
-                <mat-form-field>
-                    <input matInput placeholder="City" formControlName="city">
-                </mat-form-field>
-             <!--   <mat-form-field>
-                    <mat-radio-group aria-label="Select your gender" formControlName="gender">
-                        <mat-radio-button value="1">Male</mat-radio-button>
-                        <mat-radio-button value="2">Female</mat-radio-button>
-                        <mat-radio-button value="3">Other</mat-radio-button>
-                      </mat-radio-group>
-                </mat-form-field>
-            -->
-            
-            
-            
-            
-            </div>
-        </mat-grid-tile>
-        <mat-grid-tile>2</mat-grid-tile>
-      </mat-grid-list>
+        <mat-form-field>
+          <input matInput placeholder="Full name" formControlName="fullName" />
+        </mat-form-field>
+        <mat-form-field>
+          <input matInput placeholder="Email" formControlName="email" />
+        </mat-form-field>
+        <mat-form-field>
+          <input matInput placeholder="Mobile" formControlName="mobile" />
+        </mat-form-field>
+        <mat-form-field>
+          <input matInput placeholder="City" formControlName="city" />
+        </mat-form-field>
+      </div>
+    </mat-grid-tile>
+    <mat-grid-tile>
+      <div class="form-group">
+        <mat-radio-group
+          aria-label="Select your gender"
+          formControlName="gender"
+        >
+          <mat-radio-button value="1">Male</mat-radio-button>
+          <mat-radio-button value="2">Female</mat-radio-button>
+          <mat-radio-button value="3">Other</mat-radio-button>
+        </mat-radio-group>
+        <mat-form-field>
+          <mat-label>Department:</mat-label>
+          <mat-select>
+            <mat-option>None</mat-option>
+            <mat-option *ngFor="let dep of departments" [value]="dep.value">
+              {{ dep.value }}
+            </mat-option>
+          </mat-select>
+        </mat-form-field>
+        <mat-form-field>
+          <input
+            formControlName="hireDate"
+            matInput
+            [matDatepicker]="picker"
+            placeholder="Hire date"
+          />
+          <mat-datepicker-toggle
+            matSuffix
+            [for]="picker"
+          ></mat-datepicker-toggle>
+          <mat-datepicker #picker></mat-datepicker>
+        </mat-form-field>
+        <mat-checkbox formControlName="isEmployee"
+          >Permanent employee</mat-checkbox
+        >
+        <div class="buttons-row">
+          <button
+            mat-raised-button
+            color="accent"
+            type="submit"
+            class="btn-submit"
+          >
+            Submit form
+          </button>
+          <button mat-raised-button color="warn" class="btn-clear">
+            Clear
+          </button>
+        </div>
+      </div>
+    </mat-grid-tile>
+  </mat-grid-list>
 </form>
