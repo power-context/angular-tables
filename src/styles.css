@@ -12,6 +12,7 @@ form .form-group {
 
 form .form-group > * {
   width: 100%;
+  margin-bottom: 0.5rem;
 }
 
 form .form-group mat-radio-button {
