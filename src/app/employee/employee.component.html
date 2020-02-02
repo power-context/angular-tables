@@ -5,13 +5,27 @@
         <input type="hidden" formControlName="$key" />
 
         <mat-form-field>
-          <input matInput placeholder="Full name" formControlName="fullName" />
+          <input matInput placeholder="Full name*" formControlName="fullName" />
+          <mat-error 
+            *ngIf="service.form.controls['fullName'].errors['required']">
+            Please enter a name
+          </mat-error>
         </mat-form-field>
         <mat-form-field>
-          <input matInput placeholder="Email" formControlName="email" />
+          <input matInput placeholder="Email*" formControlName="email" />
+          <mat-error 
+            *ngIf="service.form.controls['email'].errors['required'] || 
+            service.form.controls['email'].errors['email']">
+            Please enter a correct email
+          </mat-error>
         </mat-form-field>
         <mat-form-field>
-          <input matInput placeholder="Mobile" formControlName="mobile" />
+          <input matInput placeholder="Mobile*" formControlName="mobile" />
+          <mat-error 
+            *ngIf="service.form.controls['mobile'].errors['required'] || 
+            service.form.controls['mobile'].errors['minLength']">
+            Please enter a correct number
+          </mat-error>
         </mat-form-field>
         <mat-form-field>
           <input matInput placeholder="City" formControlName="city" />
