@@ -1,5 +1,7 @@
 import { Component, OnInit } from "@angular/core";
 import { EmployeeServiceService } from "../shared/employee-service.service";
+import { DepartmentService } from '../shared/department.service';
+import { NotificationService } from '../shared/notification.service';
 
 @Component({
   selector: "app-employee",
@@ -7,13 +9,12 @@ import { EmployeeServiceService } from "../shared/employee-service.service";
   styleUrls: ["./employee.component.css"]
 })
 export class EmployeeComponent implements OnInit {
-  departments: any[] = [
-    { id: 1, value: "Dep 1" },
-    { id: 2, value: "Dep 2" },
-    { id: 3, value: "Dep 3" }
-  ];
 
-  constructor(public service: EmployeeServiceService) {}
+  constructor(
+    public service: EmployeeServiceService, 
+    public departmentService: DepartmentService,
+    public notificationService: NotificationService
+    ) {}
 
   ngOnInit() {
     this.service.getEmployees()
@@ -30,5 +31,6 @@ export class EmployeeComponent implements OnInit {
   clearForm(){
     this.service.form.reset()
     this.service.initializeForm()
+    this.notificationService.success('Clear')
   }
 }

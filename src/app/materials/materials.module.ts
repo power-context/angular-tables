@@ -12,7 +12,8 @@ const materialImport = [
   Materials.MatDatepickerModule,
   Materials.MatNativeDateModule,
   Materials.MatCheckboxModule,
-  Materials.MatButtonModule
+  Materials.MatButtonModule,
+  Materials.MatSnackBarModule
 ];
 
 @NgModule({
